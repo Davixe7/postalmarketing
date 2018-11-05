@@ -21,6 +21,7 @@
               <ul>
                 <li><a href="{{ route('cadetes.index') }}">Ver todos</a></li>
                 <li><a href="{{ route('cadetes.create') }}">Registrar nuevo</a></li>
+                <li><a href="{{ route('cadetes.upload') }}">Cargar XLS</a></li>
               </ul>
             </div>
           </li>
@@ -35,6 +36,20 @@
                 <li><a href="{{ route('clients.index') }}">Ver todos</a></li>
                 <li><a href="{{ route('clients.create') }}">Registrar nuevo</a></li>
                 <li><a href="{{ route('clients.upload') }}">Cargar XLS</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Productos</a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="{{ route('products.index') }}">Ver todos</a></li>
+                <li><a href="{{ route('products.create') }}">Registrar nuevo</a></li>
+                <li><a href="{{ route('products.upload') }}">Cargar XLS</a></li>
               </ul>
             </div>
           </li>

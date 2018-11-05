@@ -13,18 +13,21 @@ class ClientsImport implements ToModel, WithHeadingRow, WithBatchInserts, WithCh
 {
   public function model(array $row)
   {
-    return new Client([
-      "name" => $row["apellidonombre"],
-      "email" => $row["email_inst"],
-      "tel" => $row["telefonoparticularins"],
-      "address" => $row["direccionins"],
-      "x" => $row["x"],
-      "y" => $row["y"]
-    ]);
+    $client = Client::where('client_id', '=', $row['identificacion'])->exists();
+    if( !$client ){
+      return new Client([
+        "client_id" => $row["identificacion"],
+        "name"      => $row["nombre_cliente"],
+        "email"     => $row["email"],
+        "email_2"   => $row["email2"],
+        "address"   => $row["direccion"],
+        "cp"        => $row["codigo_postal"]
+      ]);
+    }
   }
 
   public function batchSize():int{
-    return 50;
+    return 1;
   }
 
   public function chunkSize():int{

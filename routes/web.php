@@ -21,6 +21,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('clients/upload', function(){
   return view('clients.upload');
 })->name('clients.upload');
+
+Route::get('products/upload', function(){
+  return view('products.upload');
+})->name('products.upload');
+
+Route::get('cadetes/upload', function(){
+  return view('cadetes.upload');
+})->name('cadetes.upload');
+
 Route::post('clients/import', 'ClientController@import')->name('clients.import');
-Route::resource('clients', 'ClientController');
-Route::resource('cadetes', 'CadeteController');
+Route::post('products/import', 'ProductController@import')->name('products.import');
+Route::post('cadetes/import', 'CadeteController@import')->name('cadetes.import');
+
+Route::resources([
+  'clients' => 'ClientController',
+  'products' => 'ProductController',
+  'cadetes' => 'CadeteController'
+]);

@@ -9512,10 +9512,13 @@ input[type=range]::-ms-thumb {
   box-shadow: none;
   border-right: 1px solid rgba(0,0,0,.1);
   background: #f7f7f7;
+  background: #fff;
 }
 body {
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
+  background: #fff;
   font-size: 14px;
+  font-family: Roboto !important;
 }
 nav {
   height: 50px;
@@ -9523,6 +9526,7 @@ nav {
   box-shadow: none;
   border-bottom: 1px solid rgba(0,0,0,.1);
   background: #f7f7f7;
+  background: #fff;
 }
 nav .brand-logo {
   padding: 3px 30px 0;
@@ -9556,7 +9560,7 @@ table th {
 }
 table td {
   font-size: 12px;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 table td:last-child {
   text-align: center;
@@ -9564,6 +9568,16 @@ table td:last-child {
 table td a.more {
   font-size: 10px;
   color: #9f9f9f;
+}
+.products-table td {
+  text-transform: uppercase;
+}
+table td.status span.material-icons{
+  font-size: 1em;
+  color: #9f9f9f;
+}
+h2 {
+  text-transform: capitalize;
 }
 @media only screen and (min-width : 601px) {
   .navbar-fixed {

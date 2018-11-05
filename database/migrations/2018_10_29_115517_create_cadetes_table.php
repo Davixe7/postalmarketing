@@ -6,26 +6,18 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCadetesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('cadetes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
-    }
+  public function up(){
+    Schema::create('cadetes', function (Blueprint $table) {
+      $table->increments('id');
+      $table->timestamps();
+      $table->integer('cadete_id')->unique();
+      $table->string('name')->nullable();
+      $table->string('email')->nullable();
+      $table->boolean('status');
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('cadetes');
-    }
+  public function down(){
+    Schema::dropIfExists('cadetes');
+  }
 }

@@ -27,7 +27,7 @@ class ClientController extends Controller
 
     public function show(Client $client)
     {
-        return view('clients.single');
+        return view('clients.single', ["client"=>$client]);
     }
 
     public function edit(Client $client)
