@@ -16,6 +16,9 @@ class CreateWorkloadsTable extends Migration
         Schema::create('workloads', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('cadete_id');
+            $table->datetime('date');
+            $table->integer('status_id');
         });
     }
 
