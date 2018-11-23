@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index(Request $request){
       $location = $request->location;
       $products = Product::with('client')->where('location', $location)->get();
-      return $products;
+      return response()->json( ['data'=>$products] );
     }
 
     public function store(Request $request)
