@@ -6,26 +6,21 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCollectsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('collects', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
-    }
+  public function up()
+  {
+    Schema::create('collects', function (Blueprint $table) {
+      $table->increments('id');
+      $table->timestamps();
+      $table->integer('workload_id');
+      $table->integer('product_id');
+      $table->bool('confirmed');
+      $table->integer('status_id');
+      $table->datetime('date');
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('collects');
-    }
+  public function down()
+  {
+    Schema::dropIfExists('collects');
+  }
 }
