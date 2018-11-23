@@ -38,7 +38,7 @@ class WorkloadController extends Controller
             }
           }
 
-          return response()->json( $products );
+          return response()->json( $workload->with('items')->with('products')->get() );
         }
       }
 
