@@ -38,7 +38,7 @@ class WorkloadController extends Controller
             }
           }
 
-          return response()->json( ["data"=>Workload::with('collects.products')->where('id', $workload->id)->get() ] );
+          return response()->json( ["data"=>Workload::with('collects.product')->where('id', $workload->id)->get() ] );
         }
       }
     }
