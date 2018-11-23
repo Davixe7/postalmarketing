@@ -10,8 +10,8 @@ class ProductController extends Controller
 {
 
     public function index(Request $request){
-      $cp = $request->cp;
-      $products = Product::with('client')->where('cp', $cp)->get();
+      $location = $request->location;
+      $products = Product::with('client')->where('location', $location)->get();
       return $products;
     }
 
