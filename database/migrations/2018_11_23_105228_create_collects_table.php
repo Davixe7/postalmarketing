@@ -14,7 +14,7 @@ class CreateCollectsTable extends Migration
       $table->integer('workload_id');
       $table->integer('product_id');
       $table->datetime('date');
-      $table->bool('confirmed')->default(0);
+      $table->boolean('confirmed')->default(0);
       $table->integer('status_id')->default(0);
     });
   }

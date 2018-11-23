@@ -37,5 +37,6 @@ Route::post('cadetes/import', 'CadeteController@import')->name('cadetes.import')
 Route::resources([
   'clients' => 'ClientController',
   'products' => 'ProductController',
-  'cadetes' => 'CadeteController'
+  'cadetes' => 'CadeteController',
+  'workloads' => 'WorkloadController',
 ]);

@@ -24,26 +24,23 @@
       </div>
     </div>
 
-    <h2>Productos</h2>
+    <h2>Cargas laborales</h2>
     <div class="row">
       <div class="col m12">
+        @if( count($cadete->workloads) )
         <table>
           <thead>
-            <th>Cod. Empresa</th>
-            <th>Equipo</th>
-            <th>Serie</th>
+            <th>ID</th>
+            <th>Fecha</th>
             <th>Status</th>
-            <td>CP</td>
             <th>Opc.</th>
           </thead>
           <tbody>
-            @foreach( $cadete->products as $p )
-              <tr>
-                <td>{{ $p->ent_id }}</td>
-                <td>{{ $p->name }}</td>
-                <td>{{ $p->serie }}</td>
-                <td>{{ $p->status }}</td>
-                <td>{{ $p->client->cp }}</td>
+            @foreach( $cadete->workloads as $w )
+              <tr class="tr-link" target="{{ route('workloads.show', ['id'=> $w->id ]) }}" onclick="window.location = this.getAttribute('target')">
+                <td>{{ $w->id }}</td>
+                <td>{{ $w->date }}</td>
+                <td>{{ $w->status_id }}</td>
                 <td>
                   <a class="more"><span class="material-icons">more_vert</span></a>
                 </td>
@@ -51,6 +48,12 @@
             @endforeach
           </tbody>
         </table>
+        @else
+        <div class="alert alert-info">
+          <span class="material-icons">info</span>
+          No posee cargas laborales
+        </div>
+        @endif
       </div>
     </div>
   </div>
