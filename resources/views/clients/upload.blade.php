@@ -19,5 +19,11 @@
       </div>
     </form>
   </div>
+  @if( $errors )
+    <div class="errors col">
+      <h2>Importación finalizada con éxito</h2>
+      {{ dd( $errors ) }}
+    </div>
+  @endif
 </div>
 @endsection

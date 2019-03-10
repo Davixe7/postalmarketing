@@ -10,15 +10,18 @@ class CreateProductsTable extends Migration
   {
     Schema::create('products', function (Blueprint $table) {
       $table->increments('id');
-      $table->string('ent_id')->nullable();
-      $table->string('name')->nullable();
+      $table->string('enterprise_id')->nullable();
       $table->string('serie')->nullable();
-      $table->string('state')->nullable();
+      $table->string('idd')->nullable();
+      $table->string('name')->nullable();
+      $table->string('postal_code')->nullable();
+      $table->string('province')->nullable();
       $table->string('location')->nullable();
       $table->string('address')->nullable();
-      $table->string('cp')->nullable();
+      $table->decimal('lat', 6, 4)->nullable();
+      $table->decimal('lng', 6, 4)->nullable();
       $table->string('status')->nullable();
-      $table->string('client_id')->nullable();
+      $table->string('client_id');
       $table->timestamps();
     });
   }

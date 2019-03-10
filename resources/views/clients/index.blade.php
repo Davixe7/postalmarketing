@@ -7,7 +7,9 @@
       <thead>
         <th></th>
         <th>Nombre</th>
-        <th>Email</th>
+        <th>CP</th>
+        <th>Provincia</th>
+        <th>Localidad</th>
         <th>Dirección</th>
         <th>Opciones</th>
       </thead>
@@ -16,7 +18,9 @@
           <tr>
             <td>{{ $client->id }}</td>
             <td><a href="{{ route('clients.show', ['id'=>$client->id]) }}">{{ $client->name }}</a></td>
-            <td>{{ $client->email }}</td>
+            <td>{{ $client->pc }}</td>
+            <td>{{ $client->province }}</td>
+            <td>{{ $client->location }}</td>
             <td class="truncate">{{ $client->address }}</td>
             <td>
               <a class="more"><span class="material-icons">more_vert</span></a>

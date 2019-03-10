@@ -4,6 +4,7 @@
   <div class="col m12">
     <h1>Información personal</h1>
     <h2>{{ strtolower($client->name) }} - <span class="ml-auto d-inline-block">{{ $client->client_id }}</span></h2>
+    <p style="display: flex; flex-flow: row wrap; align-items: center;"><i class="material-icons">place</i> {{ $client->address }} {{ $client->cp }}</p>
     <p>{{ $client->email }}</p>
     <p>{{ $client->tel }}</p>
 

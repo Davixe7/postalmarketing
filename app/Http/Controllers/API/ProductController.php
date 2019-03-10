@@ -8,30 +8,15 @@ use App\Product;
 
 class ProductController extends Controller
 {
+  
+  public function index(Request $request){
+    $postal_code = $request->postal_code;
+    $products    = Product::where('postal_code', $postal_code)->with('client')->limit(5)->get();
+    return response()->json( ['data'=>$products] );
+  }
 
-    public function index(Request $request){
-      $location = $request->location;
-      $products = Product::with('client')->where('location', $location)->get();
-      return response()->json( ['data'=>$products] );
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
+  public function update(Request $request, $id)
+  {
+    //
+  }
 }

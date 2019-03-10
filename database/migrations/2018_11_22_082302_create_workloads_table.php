@@ -6,29 +6,19 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateWorkloadsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('workloads', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->integer('cadete_id');
-            $table->datetime('date');
-            $table->integer('status_id');
-        });
-    }
+  public function up()
+  {
+    Schema::create('workloads', function (Blueprint $table) {
+      $table->increments('id');
+      $table->integer('cadete_id');
+      $table->datetime('date');
+      $table->integer('status_id');
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('workloads');
-    }
+  public function down()
+  {
+    Schema::dropIfExists('workloads');
+  }
 }

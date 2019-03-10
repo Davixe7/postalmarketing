@@ -9,11 +9,14 @@ class CreateCadetesTable extends Migration
   public function up(){
     Schema::create('cadetes', function (Blueprint $table) {
       $table->increments('id');
-      $table->timestamps();
       $table->integer('cadete_id')->unique();
-      $table->string('name')->nullable();
+      $table->string('name');
+      $table->string('lastname_1')->nullable();
+      $table->string('lastname_2')->nullable();
+      $table->string('gender')->default('M')->nullable();
       $table->string('email')->nullable();
-      $table->boolean('status');
+      $table->boolean('status')->default(false);
+      $table->timestamps();
     });
   }
 

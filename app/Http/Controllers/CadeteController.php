@@ -20,43 +20,32 @@ class CadeteController extends Controller
     return view('cadetes.create');
   }
 
-  public function store(Request $request)
-  {
-    //
-  }
-
   public function show(Cadete $cadete){
     return view('cadetes.single', ["cadete"=>$cadete]);
   }
 
-  public function edit(Cadete $cadete)
-  {
-    //
-  }
-
-  public function update(Request $request, Cadete $cadete)
-  {
-    //
-  }
-
-  public function destroy(Cadete $cadete)
-  {
-    //
-  }
-
-  public function uploud(Request $req)
+  public function upload(Request $request)
   {
     return view('cadetes.upload');
   }
 
-  public function import(Request $req){
-    $file = $req->file("xls");
-    $filename = $file->getClientOriginalName();
-    $r1 = \Storage::disk('archivos')->put($filename, \File::get( $file ));
+  public function import(Request $request){
+    $request->validate([
+      'xls' => 'mimes:xls,xlsx|required'
+    ]);
 
-    if( $r1 ){
-      Excel::import(new CadetesImport, $filename);
+    $file       = $request->file("xls");
+    $filename   = $file->getClientOriginalName();
+    $savedFile  = \Storage::disk('archivos')->put($filename, \File::get( $file ));
+
+    if( $savedFile ){
+      try {
+        Excel::import(new CadetesImport, $filename);
+      } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+        $failures = $e->failures();
+      }
+      $errors = session()->pull('validation.errors');
     }
-    return redirect()->route('cadetes.index');
+    return view('cadetes.upload', ['errors'=>$errors]);
   }
 }

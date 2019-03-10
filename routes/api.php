@@ -9,4 +9,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResources([
   'productos' => 'API\ProductController',
   'workloads' => 'API\WorkloadController',
+  'collects' => 'API\CollectController',
+  'confirmation-requests' => 'API\ConfirmationRequestController'
 ]);

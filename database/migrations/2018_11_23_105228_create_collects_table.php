@@ -10,12 +10,12 @@ class CreateCollectsTable extends Migration
   {
     Schema::create('collects', function (Blueprint $table) {
       $table->increments('id');
-      $table->timestamps();
       $table->integer('workload_id');
-      $table->integer('product_id');
+      $table->string('product_id');
       $table->datetime('date');
       $table->boolean('confirmed')->default(0);
       $table->integer('status_id')->default(0);
+      $table->timestamps();
     });
   }
 

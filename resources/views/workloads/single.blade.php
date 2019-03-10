@@ -14,7 +14,7 @@
             <th>Serie</th>
             <th>Confirmado</th>
             <th>Status</th>
-            <th>Opc.</th>
+            <th class="center-align">Opc.</th>
           </thead>
           <tbody>
             @foreach( $workload->collects as $c )
@@ -25,7 +25,9 @@
                 <td>{{ $c->confirmed }}</td>
                 <td>{{ $c->status_id }}</td>
                 <td>
-                  <a class="more"><span class="material-icons">more_vert</span></a>
+                  <a href=""><span class="material-icons">forward</span></a>
+                  <a href=""><span class="material-icons">check</span></a>
+                  <a href=""><span class="material-icons">close</span></a>
                 </td>
               </tr>
             @endforeach
