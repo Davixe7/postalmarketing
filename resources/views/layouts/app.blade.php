@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="app">
-    <!-- <ul id="slide-out" class="sidenav sidenav-fixed">
+    <ul id="slide-out" class="sidenav sidenav-fixed">
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
@@ -57,7 +57,7 @@
       </li>
       <li><a href="#!">Administradores</a></li>
       <li><a href="#!">Configuración</a></li>
-    </ul> -->
+    </ul>
     <header>
       <div class="navbar-fixed">
         <nav>

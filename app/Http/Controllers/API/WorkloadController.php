@@ -33,7 +33,7 @@ class WorkloadController extends Controller
         ]);
 
         foreach( $products as $p ){
-          if( Product::where('idd', '=', $p)->exists() ){
+          if( Product::where('id', '=', $p)->exists() ){
             $collect = Collect::create([
               'workload_id' => $workload->id,
               'product_id'  => $p,
